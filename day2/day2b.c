@@ -10,9 +10,7 @@ int main (int argc, char **argv) {
 	int hpos = 0;
 	char *input[5];
 
-	char* up;
-	char* down;
-	char* forward;
+	int aim =0;
 
 	inpt = fopen ( argv[1], "r");	
 	while ( getline( &buff, &len, inpt ) != -1) {
@@ -23,14 +21,15 @@ int main (int argc, char **argv) {
 		if (strcmp( input[0], "forward") == 0){
 			printf("forward\n");
 			hpos = hpos + atoi(input[1]);
+			vpos = vpos + (atoi(input[1]) * aim);
 		}
 		if (strcmp( input[0], "up") == 0){
 			printf("up\n");
-			vpos = vpos - atoi(input[1]);
+			aim = aim - atoi(input[1]);
 		}
 		if (strcmp( input[0], "down") == 0){
 			printf("down\n");
-			vpos = vpos + atoi(input[1]);
+			aim = aim + atoi(input[1]);
 		}
 		
 		
